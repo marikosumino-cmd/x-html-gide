@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>nomuno SNS投稿ガイド</title>
+<style>
+  :root {
+    --bordeaux: #6E2A34;
+    --bordeaux-deep: #531F27;
+    --bordeaux-tint: #F6ECEE;
+    --bordeaux-tint-2: #F1E1E3;
+    --ink: #333333;
+    --ink-soft: #6B6B6B;
+    --paper: #FAF8F6;
+    --card: #FFFFFF;
+    --line: #E9E4E1;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Meiryo", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 0 64px;
+    min-height: 100vh;
+  }
+
+  /* ---- Header ---- */
+  .header {
+    position: relative;
+    padding: 36px 24px 34px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .logo-slot {
+    width: 150px;
+    margin: 0 auto 18px;
+    display: block;
+  }
+  .logo-slot img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .mascot {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    background: var(--bordeaux);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 16px rgba(110, 42, 52, 0.28);
+  }
+
+  .mascot span {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .header h1 {
+    margin: 0 0 6px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+
+  .header p.sub {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    letter-spacing: 0.03em;
+  }
+
+  .wave {
+    display: block;
+    width: 100%;
+    height: 20px;
+    margin-top: 26px;
+  }
+
+  /* ---- Purpose hero ---- */
+  .purpose {
+    margin: 0 20px 24px;
+    background: linear-gradient(155deg, var(--bordeaux) 0%, var(--bordeaux-deep) 100%);
+    border-radius: 20px;
+    padding: 28px 22px;
+    text-align: center;
+    box-shadow: 0 10px 24px rgba(110,42,52,0.22);
+  }
+  .purpose .eyebrow {
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.08em;
+    margin: 0 0 10px;
+    font-weight: 700;
+  }
+  .purpose h2 {
+    margin: 0 0 12px;
+    font-size: 21px;
+    line-height: 1.5;
+    color: #fff;
+    font-weight: 700;
+  }
+  .purpose p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.92);
+  }
+
+  /* ---- Roles ---- */
+  .role {
+    display: flex;
+    gap: 12px;
+    padding: 13px 0;
+    border-top: 1px dashed var(--line);
+    align-items: flex-start;
+  }
+  .role:first-of-type { border-top: none; }
+
+  .role-badge {
+    flex: none;
+    min-width: 68px;
+    text-align: center;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--bordeaux);
+    border-radius: 8px;
+    padding: 5px 8px;
+    line-height: 1.4;
+  }
+
+  .role-body h3 {
+    margin: 0 0 3px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .role-body p {
+    margin: 0;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* ---- Intro bubble ---- */
+  .intro {
+    margin: 0 20px 28px;
+    background: var(--card);
+    border-radius: 18px;
+    padding: 20px 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    border: 1px solid var(--line);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .intro-text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .intro .tag {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--bordeaux);
+    background: var(--bordeaux-tint);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+    letter-spacing: 0.04em;
+  }
+
+  .intro p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.85;
+    color: var(--ink);
+  }
+
+  .intro-mascot {
+    flex: none;
+    width: 88px;
+    height: auto;
+    align-self: center;
+  }
+
+  @media (max-width: 360px) {
+    .intro-mascot { width: 68px; }
+  }
+
+  /* ---- Section ---- */
+  .section {
+    margin: 0 20px 22px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-left: 2px;
+  }
+
+  .num {
+    flex: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--bordeaux);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    font-size: 16.5px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 18px;
+    padding: 18px 18px 6px;
+    border: 1px solid var(--line);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+  }
+
+  .card > p.lead {
+    margin: 0 0 14px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  /* ---- Topic list ---- */
+  .topic {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-top: 1px dashed var(--line);
+  }
+  .topic:first-of-type { border-top: none; }
+
+  .topic-icon {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--bordeaux-tint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .topic-body h3 {
+    margin: 2px 0 3px;
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .topic-body p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* ---- Hashtag block ---- */
+  .hashtag-block {
+    margin-top: 6px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+  .hashtag-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .hashtag-lead {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    margin: 0 0 14px;
+  }
+  .hashtag-group {
+    margin-bottom: 14px;
+  }
+  .hashtag-group-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--bordeaux);
+    margin-bottom: 8px;
+  }
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+  .tag-chip {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--bordeaux-deep);
+    background: var(--bordeaux-tint);
+    padding: 5px 10px;
+    border-radius: 999px;
+    line-height: 1.3;
+  }
+  .hashtag-note {
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    margin: 6px 0 0;
+    font-style: italic;
+  }
+
+  /* ---- Rule list ---- */
+  .rule {
+    display: flex;
+    gap: 10px;
+    padding: 12px 0;
+    border-top: 1px dashed var(--line);
+  }
+  .rule:first-of-type { border-top: none; }
+
+  .rule-key {
+    flex: none;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--bordeaux);
+    padding-top: 1px;
+    width: 56px;
+  }
+
+  .rule-val {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--ink);
+    padding-bottom: 12px;
+  }
+
+  /* ---- Signature block ---- */
+  .sign-box {
+    background: var(--bordeaux-tint);
+    border-radius: 14px;
+    padding: 16px 16px;
+    margin: 4px 0 14px;
+  }
+  .sign-line {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--bordeaux-deep);
+    line-height: 1.9;
+  }
+
+  .example {
+    margin-top: 4px;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    font-style: italic;
+    padding-bottom: 14px;
+  }
+
+  .ng-list {
+    padding: 12px 0 6px;
+    border-top: 1px dashed var(--line);
+  }
+  .ng-list p {
+    font-size: 13.5px;
+    color: var(--ink);
+    line-height: 1.65;
+    margin: 0 0 10px;
+    display: flex;
+    gap: 8px;
+  }
+  .ng-list p::before {
+    content: "・";
+    color: var(--bordeaux);
+    font-weight: 700;
+  }
+
+  /* ---- Post example card ---- */
+  .post-sample {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+  .post-sample .body-text {
+    font-size: 13.5px;
+    line-height: 1.8;
+    color: var(--ink);
+    margin: 0 0 10px;
+    white-space: pre-line;
+  }
+  .photo-tag {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--bordeaux-deep);
+    background: var(--bordeaux-tint);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .post-sample .sign {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--bordeaux);
+    text-align: right;
+  }
+
+  /* ---- Closing ---- */
+  .closing {
+    margin: 30px 20px 0;
+    text-align: center;
+  }
+  .closing .bubble {
+    display: inline-block;
+    background: var(--bordeaux);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 22px;
+    border-radius: 999px;
+    box-shadow: 0 8px 20px rgba(110,42,52,0.25);
+    line-height: 1.5;
+  }
+  .closing .from {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.03em;
+  }
+
+  @media (min-width: 500px) {
+    .page { padding-bottom: 80px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="logo-slot"><img src="nomuno_logo.png" alt="nomuno"></div>
+    <h1>SNS投稿ガイド</h1>
+    <p class="sub">店長・スタッフのみなさんへ</p>
+    <svg class="wave" viewBox="0 0 480 20" preserveAspectRatio="none">
+      <path d="M0 10 C 60 20, 120 0, 180 10 S 300 20, 360 10 S 460 0, 480 10" fill="none" stroke="#6E2A34" stroke-width="2" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <div class="purpose">
+    <p class="eyebrow">WHY WE POST</p>
+    <h2>みんなでワイン好きの輪を広げよう！</h2>
+    <p>投稿は宣伝のためだけじゃなく、お店とワインの魅力を一緒に伝える仲間づくりです。堅苦しく考えず、みなさんの「好き」をシェアすることが、いちばんの発信になります。</p>
+  </div>
+
+  <div class="intro">
+    <div class="intro-text">
+      <span class="tag">のむのんより</span>
+      <p>お店の日々の様子を、無理なく気軽に投稿してください。うまく書こうとしなくて大丈夫です。日記感覚でOKです🍷</p>
+    </div>
+    <img class="intro-mascot" src="nomuno_mascot.png" alt="のむのん">
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <div class="num">1</div>
+      <h2>役割分担</h2>
+    </div>
+    <div class="card">
+      <p class="lead">それぞれの役割はこんな感じです。</p>
+
+      <div class="role">
+        <div class="role-badge">経営企画</div>
+        <div class="role-body">
+          <h3>全体の統括</h3>
+          <p>のむのん投稿の管理、アカウント全体のブランド一貫性を担当</p>
+        </div>
+      </div>
+      <div class="role">
+        <div class="role-badge">運営責任者</div>
+        <div class="role-body">
+          <h3>各店の運営責任者（社員）</h3>
+          <p>各店の投稿状況の把握、投稿承認、経営企画とのやりとり窓口</p>
+        </div>
+      </div>
+      <div class="role">
+        <div class="role-badge">投稿者<br>2〜3名</div>
+        <div class="role-body">
+          <h3>投稿文を作成する人</h3>
+          <p>店長＋スタッフも可。1人に偏らないようにする</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <div class="num">2</div>
+      <h2>何を書けばいい？</h2>
+    </div>
+    <div class="card">
+      <p class="lead">下記アイデアを参考にどんどん広げてください。</p>
+
+      <div class="topic">
+        <div class="topic-icon">🍷</div>
+        <div class="topic-body">
+          <h3>今日の入荷ワイン</h3>
+          <p>新しく入ったワインの名前＆知識や、飲んでみた感想</p>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="topic-icon">✨</div>
+        <div class="topic-body">
+          <h3>今日・今月・季節のおすすめワイン</h3>
+          <p>今この一杯を選ぶならコレ、という気軽な一言</p>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="topic-icon">💡</div>
+        <div class="topic-body">
+          <h3>ワインを学びながらの気づき</h3>
+          <p>新たな発見や感動のシェア</p>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="topic-icon">💬</div>
+        <div class="topic-body">
+          <h3>お客様のエピソード</h3>
+          <p>お客さんとのやり取りで嬉しかったこと、印象に残ったやりとり、お客さんのストーリー（第三者の意見としてnomunoの空気を伝えられる）</p>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="topic-icon">🙌</div>
+        <div class="topic-body">
+          <h3>nomunoで働きたくなる理由</h3>
+          <p>実際に働いてみての感想、良さなど</p>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="topic-icon">📸</div>
+        <div class="topic-body">
+          <h3>nomunoこんな使い方されてます</h3>
+          <p>賑わっている写真やお客様の持ち込み品の紹介（お客さんとのコミュニケーションもできる）。来店する前のイメージ想起を促す</p>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="topic-icon">🍽️</div>
+        <div class="topic-body">
+          <h3>お店にあるメニューの紹介</h3>
+          <p>持ち込みしなくても楽しめます！メニューの良さ紹介</p>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="topic-icon">🥡</div>
+        <div class="topic-body">
+          <h3>近隣のテイクアウト情報</h3>
+          <p>近くのお店の気になるメニューなど</p>
+        </div>
+      </div>
+
+      <div class="hashtag-block">
+        <div class="hashtag-title"># ハッシュタグの選び方</div>
+        <p class="hashtag-lead">2個推奨：大タグ1つ＋ターゲット（中小）タグ1つ</p>
+
+        <div class="hashtag-group">
+          <div class="hashtag-group-label">大ボリューム（認知を広げる）</div>
+          <div class="tag-cloud">
+            <span class="tag-chip">#ワイン</span>
+            <span class="tag-chip">#ワインの選び方</span>
+            <span class="tag-chip">#ペアリング</span>
+            <span class="tag-chip">#テイスティング</span>
+            <span class="tag-chip">#コラボ</span>
+          </div>
+        </div>
+
+        <div class="hashtag-group">
+          <div class="hashtag-group-label">中ボリューム（関心層へアプローチ）</div>
+          <div class="tag-cloud">
+            <span class="tag-chip">#ワイン初心者</span>
+            <span class="tag-chip">#ワインマニア</span>
+            <span class="tag-chip">#ブドウ品種</span>
+            <span class="tag-chip">#ワイン産地</span>
+            <span class="tag-chip">#ワイントレンド</span>
+            <span class="tag-chip">#ワイン文化</span>
+            <span class="tag-chip">#宅飲みワイン</span>
+            <span class="tag-chip">#コスパワイン</span>
+            <span class="tag-chip">#ナチュールワイン</span>
+            <span class="tag-chip">#スパークリングワイン</span>
+            <span class="tag-chip">#今日の一杯</span>
+          </div>
+        </div>
+
+        <div class="hashtag-group">
+          <div class="hashtag-group-label">小ボリューム・ワインの知識/シーン</div>
+          <div class="tag-cloud">
+            <span class="tag-chip">#ワイン基礎知識</span>
+            <span class="tag-chip">#ワイン温度</span>
+            <span class="tag-chip">#ジャケ買いワイン</span>
+            <span class="tag-chip">#お花見ワイン</span>
+          </div>
+          <p class="hashtag-note">季節限定タグ：#ホットワイン など季節で入れ替え</p>
+        </div>
+
+        <div class="hashtag-group">
+          <div class="hashtag-group-label">小ボリューム・エリア/グルメ</div>
+          <div class="tag-cloud">
+            <span class="tag-chip">#赤坂グルメ</span>
+            <span class="tag-chip">#赤坂ディナー</span>
+            <span class="tag-chip">#有楽町グルメ</span>
+            <span class="tag-chip">#有楽町ランチ</span>
+            <span class="tag-chip">#二子玉川グルメ</span>
+            <span class="tag-chip">#二子玉川デート</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <div class="num">3</div>
+      <h2>投稿のルール</h2>
+    </div>
+    <div class="card">
+      <p class="lead">続けられることが何よりも大切です。</p>
+
+      <div class="rule">
+        <div class="rule-key">頻度</div>
+        <div class="rule-val">週2〜4回くらい。ノルマではないので、無理な時は無理しなくて大丈夫です。もちろんもっと投稿しても◎ 何より楽しんで！</div>
+      </div>
+      <div class="rule">
+        <div class="rule-key">長さ</div>
+        <div class="rule-val">1〜2行でもOK。写真だけ＋一言でもOKです</div>
+      </div>
+      <div class="rule">
+        <div class="rule-key">チェック</div>
+        <div class="rule-val">投稿文を書いたら下書きへ。運営責任者チェックのもと投稿ボタンを押してください</div>
+      </div>
+      <div class="rule">
+        <div class="rule-key">マナー</div>
+        <div class="rule-val">ワインの文化としてネガティブ表現はしない。ネガティブをいかにポジティブに伝えるかがワインの文化なのを意識して！</div>
+      </div>
+      <div class="rule">
+        <div class="rule-key">避けたい<br>こと</div>
+        <div class="rule-val">他のお店やブランドを下げるような比較だけは避けてください</div>
+      </div>
+    </div>
+
+    <div class="sign-box" style="margin-top:14px;">
+      <div style="font-size:13.5px; font-weight:700; color:var(--bordeaux-deep); margin-bottom:6px;">📸 写真もぜひ載せてください</div>
+      <div style="font-size:13px; line-height:1.75; color:var(--ink);">店内の雰囲気やワインがわかる写真があると、投稿がぐっと伝わりやすくなります。スタッフさんのお顔が写っても大丈夫な方は、ぜひ載せてください。一気に親近感が湧きます！</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <div class="num">4</div>
+      <h2>最後に必ず入れる署名</h2>
+    </div>
+    <div class="card">
+      <p class="lead">本文は自由に書いてOK。文末にだけ、下記の形で署名を入れてください。</p>
+
+      <div class="sign-box">
+        <div class="sign-line">―（店舗名）店長・（名前）</div>
+        <div class="sign-line">―（店舗名）スタッフ・（名前）</div>
+      </div>
+      <p class="example">例：「―赤坂店 店長・佐藤」／「―二子玉川店 スタッフ・田中」</p>
+
+      <div class="ng-list">
+        <p>役職と名前は必ず入れてください（どなたの投稿か分かることが目的です）</p>
+        <p>「なのん」など、のむのんの語尾は使わないでください（のむのんは別の投稿担当なので）</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <div class="num">5</div>
+      <h2>投稿例</h2>
+    </div>
+    <div class="card">
+      <div class="post-sample" style="margin-top:2px;">
+        <div class="photo-tag">📷 ワインボトルの写真</div>
+        <p class="body-text">今日入荷したブルゴーニュのピノ。香りがすごく良くて驚きました🫢🍷これが飲み比べ放題できちゃいますよ〜！この週末はnomunoへぜひ！</p>
+        <p class="sign">―赤坂店 スタッフ・角野</p>
+      </div>
+
+      <div class="post-sample">
+        <div class="photo-tag">📷 乾杯の様子</div>
+        <p class="body-text">「ここに来ると新しい発見がある」と常連のお客様が言ってくださいました。私たちも一緒に学べる時間で、いつも嬉しくなります☺️</p>
+        <p class="sign">―有楽町店 スタッフ・鈴木</p>
+      </div>
+
+      <div class="post-sample">
+        <div class="photo-tag">📷 ロゼワインの写真</div>
+        <p class="body-text">今月のイチオシは南フランスのロゼ。爽やかな酸味で暑い日にぴったりです🍷ぜひ飲み比べてみてください！</p>
+        <p class="sign">―二子玉川店 スタッフ・田中</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="closing">
+    <div class="bubble">迷ったらいつでも聞いてね。<br>まずは気軽に始めてみよう！</div>
+    <div class="from">― nomuno 経営企画</div>
+  </div>
+
+</div>
+</body>
+</html>
